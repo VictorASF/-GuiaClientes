@@ -1,13 +1,10 @@
 <template>
 <div id='cliente'>
-    <h2 id='cliente-nome'>{{nome}}</h2>
-    <h2>{{idade}} anos </h2>
-    <h3>
-        Descrição do cliente
-    </h3>
-    {{
-        2+2*2
-    }}
+    <h4>Nome: {{client.nome}}</h4>
+    <hr>
+    <p>Email: {{ client.email }}</p>
+    <p v-if="client.idade >= 18">Idade: {{ client.idade }}</p>
+    <p v-else>Cliente menor de 18 anos</p>
 </div>
     
 </template>
@@ -16,22 +13,20 @@
 export default {
     data(){
         return{
-            nome:'Victor',
-            numero:'',
-            email:'',
-            idade:21
         }
+    },
+    props: {
+        client: Object,
+        showAge: Boolean
     }
 }   
 </script>
 
 <style scoped>
     #cliente{
+        background-color: #ECE5E3;
         color:blue;
-        max-width: 600px;
-
-    }
-    #cliente-nome{
-        color:blue;
+        padding: 1%;
+        margin-top: 2%;
     }
 </style>
